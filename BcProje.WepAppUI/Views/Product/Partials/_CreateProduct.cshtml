@@ -1,0 +1,23 @@
+﻿@model Product
+
+<div class="row">
+    <form class="row g-3" asp-controller="Product" asp-action="CreateProduct">
+            <div class="col-md-6">
+            <label class="form-label">Marka</label>
+            <input type="text" class="form-control" asp-for="Brand">
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Model</label>
+                <input type="text" class="form-control" asp-for="Model">
+            </div>
+            <div class="col-md-6">
+            <label class="form-label">Fiyat</label>
+                <input type="number" class="form-control" asp-for="Price">
+            </div>
+            <div class="col-md-6">
+                <button type="submit" class="btn btn-primary">Kaydet</button>
+            </div>
+    </form>
+</div>
+
+

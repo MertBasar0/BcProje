@@ -1,0 +1,42 @@
+﻿@model Customer
+<form class="row g-3" asp-controller="Customer" asp-action="CreateCustomer">
+  <div class="col-md-6">
+    <label class="form-label">Şirket Ünvanı</label>
+    <input type="name" class="form-control" asp-for="Name">
+  </div>
+   <div class="col-md-6">
+    <label class="form-label">Bölge</label>
+    <input type="name" class="form-control" asp-for="Region">
+  </div>
+   <div class="col-md-6">
+    <label class="form-label">Genel Müdür</label>
+    <input type="name" class="form-control" asp-for="GeneralManager">
+  </div>
+   <div class="col-md-6">
+    <label class="form-label">Satış Müdürü</label>
+    <input type="name" class="form-control" asp-for="SaleManager">
+  </div>
+   <div class="col-md-6">
+    <label class="form-label">Ünite Sayısı</label>
+    <input type="name" class="form-control" asp-for="UnitCount">
+  </div>
+  <div class="col-md-6">
+    <label class="form-label">Adres</label>
+    <input type="name" class="form-control" asp-for="Address">
+  </div>
+  <div class="col-md-6">
+    <label class="form-label">Telefon</label>
+    <input type="name" class="form-control" asp-for="ComNo">
+  </div>
+  <div class="col-md-6">
+    <label class="form-label">Mail</label>
+    <input type="name" class="form-control" asp-for="Mail">
+  </div>
+    <div class="col-md-6">
+    <label class="form-label">Doktor ismi</label>
+    <input type="name" class="form-control" asp-for="DoctorName">
+  </div>
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">Kaydet</button>
+  </div>
+</form>

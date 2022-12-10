@@ -1,0 +1,40 @@
+﻿@model List<Report>
+
+
+@{
+    if (Model is not null)
+    {
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Not</th>
+              <th scope="col">Sonuç</th>
+              <th scope="col">Tarih</th> 
+              <th>
+              <div class="mb-3">
+              <form method="get">
+                                <button  type="submit" class="btn btn-info" asp-controller="report" asp-action="index" name="visitId" value=@ViewBag.visitId>Ek Rapor</button>
+              </form>
+              </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+              <form>
+                @{
+                      foreach (var item in Model)
+                      {
+                          <tr>
+                          <td scope="row">@item.ReportId</td>
+                          <td>@item.VisitNote</td>
+                          <td>@item._Result</td>
+                          <td>@item.Date</td>
+                          </tr>
+                      }
+                  }
+              </form>
+          </tbody>
+        </table>
+    }
+}

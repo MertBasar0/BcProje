@@ -1,0 +1,11 @@
+﻿@model Employee
+
+<form class="row g-3" asp-controller="Employees" asp-action="CreateEmployee">
+          <div class="col-md-6">
+            <label class="form-label">Çalışan İsmi</label>
+            <input type="name" class="form-control" asp-for="Name">
+          </div>
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary">Kaydet</button>
+          </div>
+</form>

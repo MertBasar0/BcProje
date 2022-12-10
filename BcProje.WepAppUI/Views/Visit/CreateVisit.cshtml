@@ -1,0 +1,38 @@
+﻿@model Visit
+
+
+@{
+    List<Customer> customers = TempData["customers"] as List<Customer>;
+}
+
+
+<form asp-controller="Visit" asp-action="CreateVisit" method="post">
+<div class="mb-3">
+<div class="row g-2">
+  <div class="col-md">
+    <div class="form-floating">
+      <input type="date" class="form-control" asp-for="Date" id="floatingInputGrid" value=@DateTime.Now>
+      <input type="hidden" class="form-control" asp-for="EmployeeId" value=1>
+      <label for="floatingInputGrid">Tarih Seçin</label>
+    </div>
+  </div>
+  <div class="col-md">
+    <div class="form-floating">
+      <select class="form-select" asp-for="CustomerId">
+                    @{
+                        for(int i = 0; i < customers.Count; i++)
+                        {
+                            <option value="@customers[i].CustomerId" >@customers[i].Name</option>
+                        }
+                    }
+      </select>
+      <label for="floatingSelectGrid">Şirket Seçin</label>
+    </div>
+  </div>
+</div>
+</div>
+<div class="mb-3">
+    <button type="submit" class="btn btn-primary">Submit</button>
+</div>
+</form>
+

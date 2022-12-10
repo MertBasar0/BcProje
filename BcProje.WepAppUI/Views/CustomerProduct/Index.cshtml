@@ -1,0 +1,76 @@
+﻿
+@model CustomerProduct
+
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+        <h5>Müşterinin alabileceği ürünler</h5>
+            @{
+                if ((ViewData["Possible"] as List<Product>) is not null)
+                {
+                    <table class="table">
+                        <thead>
+                           <tr>
+                                <th scope="col">Marka</th>
+                                <th scope="col">Model</th>
+                                <th scope="col">İşlem</th>
+                           </tr> 
+                        </thead>
+                        <tbody>
+                            @{
+                                foreach(var item in ViewData["Possible"] as List<Product>)
+                                    {
+                                    <form class="row g-3" asp-controller="CustomerProduct" asp-action="AddProduct">
+                                        <tr>
+                                          <td>@item.Brand</td>
+                                          <td>@item.Price</td>
+                                          <input type="hidden" asp-for="ProductId" value=@item.ProductId>
+                                          <input type="hidden" asp-for="CustomerId" value=@TempData["customerId"]>
+                                          <td><button class="btn btn-success" type="submit">Ekle</button></td>
+                                        </tr>
+                                    </form>
+                                    }
+                              }
+                        </tbody>
+                    </table>
+                }    
+        }
+    </div>
+    <div class="col">
+    <h5>Müşteriye tanımlanan ürünler</h5>
+@{
+    if ((ViewData["Added"] as List<Product>) is not null)
+    {
+        <table class="table">
+            <thead>
+               <tr>
+                    <th scope="col">Marka</th>
+                    <th scope="col">Model</th>
+                    <th scope="col">İşlem</th>
+               </tr>
+            </thead>
+            <tbody>
+                @{
+                    foreach(var item in ViewData["Added"] as List<Product>)
+                        {
+                            <form class="row g-3" asp-controller="CustomerProduct" asp-action="RemoveCustomerProduct">
+                                <tr>
+                                    <td>@item.Brand</td>
+                                    <td>@item.Model</td>
+                                    <input type="hidden" asp-for="ProductId" value=@item.ProductId>
+                                    <input type="hidden" asp-for="CustomerId" value=@TempData["customerId"]>
+                                    <td><button class="btn btn-primary" type="submit">Çıkart</button></td>
+                                </tr>
+                            </form>
+                        }
+                  }
+            </tbody>
+        </table>
+    }
+}
+    </div>
+  </div>
+</div>
+
+       

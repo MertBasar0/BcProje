@@ -1,0 +1,31 @@
+﻿@model Report
+
+    
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <form asp-controller="Report" asp-action="CreateReport" method="post">
+            <div class="mb-3">
+              <label for="exampleFormControlTextarea1" class="form-label">Ziyaret Notu </label>
+                  <textarea class="form-control" id="exampleFormControlTextarea1" asp-for="VisitNote" placeholder="Deneme ürünü verildiyse burada belirtiniz." rows="3"></textarea>
+            </div>
+                <div class="form-check">
+                  <label class="form-check-label">Satış yapıldı
+                      <input class="form-check-input" type="radio" asp-for="_Result" value="Sold">
+                  </label>
+                </div>
+                <div class="form-check">
+                  <label class="form-check-label">Deneme Ürünü verildi
+                      <input class="form-check-input" type="radio" asp-for="_Result" value="TrialGiven" checked>
+                  </label>
+                </div>
+                <div class="mb-3">
+                    <input type="hidden" asp-for="VisitId" value=@ViewBag.visitId>
+                </div>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button type="submit" class="btn btn-outline-primary">Kaydet</button>
+            </div>
+        </form>
+    </div>
+  </div>
+</div>
